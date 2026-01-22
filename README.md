@@ -6,7 +6,27 @@ The application supports user preferences, calendar slot booking, admin
 slot management, and persistent backend storage.
 
 ------------------------------------------------------------------------
+Special Multi‑User Behavior (Important)
 
+This project simulates **two users**:
+
+-   `me@example.com` → **Primary user**
+-   `others@example.com` → **Normal user**
+
+### Role Behavior Rules
+
+  Action                       me@example.com   others@example.com
+  ---------------------------- ---------------- --------------------
+  Book slots                   ✅ Allowed       ✅ Allowed
+  Cancel own bookings          ✅ Allowed       ✅ Allowed
+  Cancel other user bookings   ✅ Allowed       ❌ Not Allowed
+  Admin slot management        ✅ Allowed       ❌ Not Allowed
+
+### Example:
+
+If `others@example.com` books a slot,\
+➡️ **me@example.com can cancel or edit that booking**\
+➡️ This demonstrates **role-based privilege handling**
 ## Features
 
 ### User Features
