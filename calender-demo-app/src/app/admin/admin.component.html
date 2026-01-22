@@ -1,0 +1,67 @@
+<div class="admin-layout">
+    <div class="admin-left">
+        <h2>Admin Panel</h2>
+
+        <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select [(ngModel)]="category">
+                <mat-option *ngFor="let c of categories" [value]="c">
+                    {{ c }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Date</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate"
+                [matDatepickerFilter]="disablePastDates">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Start Time</mat-label>
+            <mat-select [(ngModel)]="startTime">
+                <mat-option *ngFor="let t of times" [value]="t">{{ t }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>End Time</mat-label>
+            <mat-select [(ngModel)]="endTime">
+                <mat-option *ngFor="let t of times" [value]="t">{{ t }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="addSlot()">Add Slot</button>
+        <button mat-button (click)="back()">Back</button>
+
+    </div>
+
+    <div class="admin-right">
+
+        <h3>Admin Calendar (All Bookings)</h3>
+
+        <table class="calendar">
+            <tr>
+                <th>Category</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Booked By</th>
+                <!-- <th>Action</th> -->
+            </tr>
+
+            <tr *ngFor="let e of events">
+                <td>{{ e.category }}</td>
+                <td>{{ e.date }}</td>
+                <td>{{ e.startTime }} - {{ e.endTime }}</td>
+                <td>{{ e.bookedBy || 'Available' }}</td>
+                <!-- <td>
+                    <button *ngIf="e.bookedBy" mat-button color="warn" (click)="adminCancel(e)">
+                        Cancel
+                    </button>
+                </td> -->
+            </tr>
+        </table>
+    </div>
+</div>

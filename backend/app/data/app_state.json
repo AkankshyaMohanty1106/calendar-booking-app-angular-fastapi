@@ -1,0 +1,42 @@
+{
+  "currentUser": "Others@example.com",
+  "preferences": {
+    "categories": [
+      "Cat 1"
+    ]
+  },
+  "events": [
+    {
+      "id": "slot-1769069876835",
+      "category": "Cat 1",
+      "date": "2026-01-23",
+      "startTime": "02:00",
+      "endTime": "03:00",
+      "bookedBy": "me@example.com"
+    },
+    {
+      "id": "slot-1769070075884",
+      "category": "Cat 2",
+      "date": "2026-01-24",
+      "startTime": "03:00",
+      "endTime": "04:00",
+      "bookedBy": "Others@example.com"
+    },
+    {
+      "id": "slot-1769070138818",
+      "category": "Cat 3",
+      "date": "2026-01-25",
+      "startTime": "05:00",
+      "endTime": "06:00",
+      "bookedBy": "me@example.com"
+    },
+    {
+      "id": "slot-1769074576856",
+      "category": "Cat 1",
+      "date": "2026-01-23",
+      "startTime": "13:00",
+      "endTime": "14:00",
+      "bookedBy": null
+    }
+  ]
+}

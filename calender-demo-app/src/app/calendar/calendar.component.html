@@ -1,0 +1,55 @@
+<h2>Calendar for {{ selectedCategory }}</h2>
+
+<mat-form-field>
+  <mat-label>Category</mat-label>
+  <mat-select [(ngModel)]="selectedCategory">
+    <mat-option *ngFor="let c of categories" [value]="c">
+      {{ c }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<button mat-button color="primary" (click)="goAdmin()">Admin</button>
+
+<div class="week-nav">
+  <button mat-button (click)="prevWeek()">‹ Previous Week</button>
+  <strong>{{ weekLabel }}</strong>
+  <button mat-button (click)="nextWeek()">Next Week ›</button>
+</div>
+
+<table class="calendar">
+  <tr>
+    <th>Time</th>
+    <th *ngFor="let d of weekDates">{{ d.label }}</th>
+  </tr>
+
+  <tr *ngFor="let t of times">
+    <td class="time">{{ t }}</td>
+
+    <td *ngFor="let d of weekDates">
+      <ng-container *ngIf="getSlot(d.date, t) as slot">
+        <div [ngClass]="slotClass(slot)">
+          <div *ngIf="slot.bookedBy">
+            Booked by: {{ slot.bookedBy }}
+          </div>
+
+          <button
+            *ngIf="!slot.bookedBy"
+            mat-button
+            color="primary"
+            (click)="signup(slot)">
+            Signup
+          </button>
+
+          <button
+            *ngIf="slot.bookedBy === currentUser"
+            mat-button
+            color="warn"
+            (click)="cancel(slot)">
+            Cancel
+          </button>
+        </div>
+      </ng-container>
+    </td>
+  </tr>
+</table>

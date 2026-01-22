@@ -1,0 +1,16 @@
+<h2>Select Categories</h2>
+
+<div *ngFor="let c of categories">
+  <label>
+    <input type="checkbox" [(ngModel)]="selected[c]" />
+    {{ c }}
+  </label>
+</div>
+
+<div *ngIf="errorMessage" style="color: red; margin-top: 10px;">
+  {{ errorMessage }}
+</div>
+
+<br />
+
+<button (click)="savePreferences()">Save Preferences</button>

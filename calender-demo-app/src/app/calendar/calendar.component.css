@@ -1,0 +1,35 @@
+.calendar {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.calendar th,
+.calendar td {
+  border: 1px solid #ccc;
+  padding: 6px;
+  text-align: center;
+}
+
+.time {
+  font-weight: bold;
+}
+
+.available {
+  background: #e8f5e9;
+}
+
+.my-booking {
+  background: #bbdefb;
+}
+
+.other-booking {
+  background: #ffcdd2;
+}
+
+.week-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin: 12px 0;
+}
